@@ -7,6 +7,10 @@ export type TrackDocument = HydratedDocument<Track>;
 
 @Schema()
 export class Track {
+    
+    @Prop()
+    name: string;
+
     @Prop()
     artist: string;
   

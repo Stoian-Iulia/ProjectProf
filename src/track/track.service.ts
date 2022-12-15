@@ -47,4 +47,18 @@ export class TrackService {
         return comment;
       }
 
+      async listen(id: ObjectId) {
+        const track = await this.trackModel.findById(id);
+        track.listens += 1
+        track.save()
+      }
+
+    //   async search(query: string): Promise<Track[]> {
+    //     const tracks = await this.trackModel.find({
+    //         name:{$regex:new RegExp(query)}
+    //     })
+    //     return tracks;
+        
+    //   }
+
 }

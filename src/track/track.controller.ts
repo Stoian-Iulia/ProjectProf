@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, UploadedFiles, UseInterceptors } from "@nestjs/common";
 import { FileFieldsInterceptor } from "@nestjs/platform-express";
-import { ObjectId } from "mongoose";
+import { ObjectId, Query } from "mongoose";
 import { CreateCommentDto } from "./dto/create-comment.dto";
 import { CreateTrackDto } from "./dto/create-track.dto";
 import { TrackService } from "./track.service";
@@ -25,6 +25,11 @@ export class TrackController {
           return this.trackService.getAll();
         }
       
+        // @Get('/search')
+        // search(@Query('query') query: string) {
+        //   return this.trackService.search(query);
+        // }
+
         @Get(':id')
         getOne(@Param('id') id: ObjectId) {
           return this.trackService.getOne(id);
@@ -38,5 +43,11 @@ export class TrackController {
         @Post('/comment')
         addComment(@Body() dto:CreateCommentDto) {
             return this.trackService.addComment(dto);
+        }
+
+        @Post('/listen/:id')
+        listen(@Param('id') id: ObjectId) {
+            return this.trackService.listen(id);
+        
         }
     }
