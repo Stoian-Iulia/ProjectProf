@@ -9,17 +9,19 @@ import { TrackService } from "./track.service";
 @Controller('/tracks')
 
 export class TrackController {
-        constructor(private trackService: TrackService) {
-        }
+        constructor(private trackService: TrackService) {}
+
         @Post()
         @UseInterceptors(FileFieldsInterceptor([
             { name: 'picture', maxCount: 1 },
             { name: 'audio', maxCount: 1 },
           ]))
-        create(@UploadedFiles() files, @Body() dto: CreateTrackDto): Promise<import("d:/IS31Z/PracticaProf/project/src/track/schemas/track.schema").Track> {
+        create(@UploadedFiles() files, @Body() dto: CreateTrackDto) {
             const {picture, audio} = files
             return this.trackService.create(dto, picture[0], audio[0]);
         }
+
+
         @Get()
         getAll() {
           return this.trackService.getAll();
@@ -50,4 +52,5 @@ export class TrackController {
             return this.trackService.listen(id);
         
         }
+        
     }
