@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
+import { FileService } from "src/file/file.service";
 // import { Mongoose } from "mongoose";
 import { Comment, CommentSchema } from "./schemas/comment.schema";
 import { Track, TrackSchema } from "./schemas/track.schema";
@@ -13,7 +14,7 @@ import { TrackService } from "./track.service";
         MongooseModule.forFeature([{name: Comment.name, schema: CommentSchema}])     
     ],
     controllers: [TrackController],
-    providers: [TrackService]
+    providers: [TrackService, FileService]
 })
 
 export class TrackModule {}
