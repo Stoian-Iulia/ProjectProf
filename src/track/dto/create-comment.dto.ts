@@ -1,9 +1,7 @@
-/* eslint-disable prettier/prettier */
-import { ObjectId } from "mongoose";
+import { ObjectId } from 'mongoose';
 
 export class CreateCommentDto {
-    readonly username: string;
-    readonly trackId: ObjectId;
-    readonly text: string;
-    
+  readonly username: string;
+  readonly trackId: ObjectId;
+  readonly text: string;
 }

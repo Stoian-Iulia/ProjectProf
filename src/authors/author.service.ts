@@ -1,11 +1,7 @@
-/* eslint-disable prettier/prettier */
-import { Injectable } from "@nestjs/common";
-import { CreateAuthorDto } from "./dto/create-author.dto";
+import { Injectable } from '@nestjs/common';
+import { CreateAuthorDto } from './dto/create-author.dto';
 
 @Injectable()
-
 export class AuthorService {
-    async create(dto: CreateAuthorDto){
-
-      }
+  async create(dto: CreateAuthorDto) {}
 }

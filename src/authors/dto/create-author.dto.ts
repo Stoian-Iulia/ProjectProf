@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
-import { ObjectId } from "mongoose";
+import { ObjectId } from 'mongoose';
 
 export class CreateAuthorDto {
-    readonly firstName: string;
-    readonly lastName: string;
-    readonly age: number;
-    readonly gender: string;
-    readonly birthdate: string;
-    readonly authorId: ObjectId;    
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly age: number;
+  readonly gender: string;
+  readonly birthdate: string;
+  readonly authorId: ObjectId;
 }
