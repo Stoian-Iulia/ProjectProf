@@ -13,9 +13,7 @@ import { FileService, FileType } from "src/file/file.service";
 export class TrackService {
     constructor(@InjectModel(Track.name) private trackModel: Model<TrackDocument>,
                 @InjectModel(Comment.name) private commentkModel: Model<CommentDocument>,
-                private fileService: FileService){
-
-     }
+                private fileService: FileService){}
 
      async create(dto: CreateTrackDto, picture, audio): Promise<Track> {
         const audioPath = this.fileService.createFile(FileType.AUDIO, audio);
@@ -52,13 +50,4 @@ export class TrackService {
         track.listens += 1
         track.save()
       }
-
-    //   async search(query: string): Promise<Track[]> {
-    //     const tracks = await this.trackModel.find({
-    //         name:{$regex:new RegExp(query)}
-    //     })
-    //     return tracks;
-        
-    //   }
-
 }
